@@ -5,7 +5,9 @@ import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class SpeechManager {
 
@@ -41,5 +43,21 @@ public class SpeechManager {
         if (speechStatus == TextToSpeech.ERROR) {
             Log.e("TTS", "Error in converting Text to Speech!");
         }
+    }
+
+    public String translate_from_en_to_tr(String en_text){
+
+        Map<String, String> vocab = new HashMap<>();
+        vocab.put("hours", "saat");
+        vocab.put("ago", "önce");
+        String tr_text = en_text;
+
+        for (Map.Entry<String, String> entry : vocab.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            tr_text = tr_text.replace(key, value);
+        }
+
+        return tr_text;
     }
 }

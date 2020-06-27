@@ -77,7 +77,7 @@ public class NetworkManager {
         return connected;
     }
 
-    public void send_google_cal_request(){
+    public void send_google_cal_request(final SpeechManager speechManager){
         RequestQueue queue = Volley.newRequestQueue(activity.getApplicationContext());
 
         StringRequest postRequest = new StringRequest(com.android.volley.Request.Method.POST, getPostUrl_assistant(),
@@ -86,6 +86,27 @@ public class NetworkManager {
                     public void onResponse(String response) {
                         // response
                         Log.d("Navigation Response: ", response);
+
+                        JSONArray event_list = null;
+                        try {
+                            event_list = new JSONArray(response);
+
+                            for (int i=0; i<event_list.length(); i++) {
+                                Log.d("DEV", String.valueOf(event_list.get(i)));
+                                JSONObject event = (JSONObject) event_list.get(i);
+                                String name = event.getString("name");
+                                String start_time = event.getString("start_time");
+                                Log.d("DEV", name);
+                                Log.d("DEV", start_time);
+
+                                String sentence = name + " " + speechManager.translate_from_en_to_tr(start_time);
+                                if (!response.equals("") && !response.equals(" "))
+                                    speechManager.say_sentence(sentence);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
                     }},
                 new com.android.volley.Response.ErrorListener() {
