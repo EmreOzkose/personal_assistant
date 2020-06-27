@@ -2,10 +2,7 @@ import sys
 
 import flask
 import time
-import cv2
-import numpy
 import json
-from queue import Queue
 from os.path import join as p_join
 from assistant import Assistant
 from utils import *

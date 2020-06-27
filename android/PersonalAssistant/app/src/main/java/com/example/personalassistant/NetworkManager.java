@@ -27,6 +27,7 @@ import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -99,13 +100,21 @@ public class NetworkManager {
                                 Log.d("DEV", name);
                                 Log.d("DEV", start_time);
 
-                                String sentence = name + " " + speechManager.translate_from_en_to_tr(start_time);
-                                if (!response.equals("") && !response.equals(" "))
-                                    speechManager.say_sentence(sentence);
+                                ArrayList<String> info_list = new ArrayList<>();
+                                info_list.add(speechManager.translate_from_en_to_tr(start_time));
+                                info_list.add(name);
+
+                                for (String str : info_list){
+                                    speechManager.say_sentence(str);
+                                    TimeUnit.SECONDS.sleep(3);
+                                }
+
+                                speechManager.say_sentence("Programınız bu kadar "+speechManager.getCall_name()+". Kolaylıklar dilerim...");
                             }
 
-                        } catch (JSONException e) {
+                        } catch (JSONException | InterruptedException e) {
                             e.printStackTrace();
+                            speechManager.say_sentence("Server'da bir sıkıntı çıktı");
                         }
 
                     }},
