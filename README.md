@@ -30,7 +30,7 @@ python server.py
 ```
 
 ## Architecture
-...
+will be added soon
 
 ## TO-DO
 - [ ] eye detection yaparak speech recognition kısmına odaklan
