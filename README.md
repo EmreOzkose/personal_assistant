@@ -30,4 +30,4 @@ python server.py
 - [ ] add multi language design to android app
 
 ## License 
-This project is under the GPL-3.0 License. See LICENSE for details.
+This project is under the GPL-3.0 License. See [LICENSE](LICENSE) for details.
