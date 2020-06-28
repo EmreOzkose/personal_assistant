@@ -20,6 +20,11 @@ cd /path/to/personal_assistant/server
 python server.py
 ```
 
+### First Steps After Opening Android App
+```
+"artık bana <ismin> de" # Let 19 knows your name
+```
+
 ## Architecture
 ...
 
@@ -31,6 +36,7 @@ python server.py
 - [ ] Q/A AI model
 - [ ] add multi language design to android app
 - [ ] make new release after constructing a wiki and readme
+- [ ] add screenshots to readme or wiki
 
 ## License 
 This project is under the GPL-3.0 License. See [LICENSE](LICENSE) for details.
