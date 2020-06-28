@@ -14,7 +14,7 @@ For detail, please refer to [wiki pages](https://github.com/EmreOzkose/personal_
 
 ## Getting started
 ### Installation
-...
+will be added soon
 
 ### Run recomendation
 Prepare a .sh file. A template is given. It is just a few line of code, but you are not required to open an ide or initializing a conda env, etc...
