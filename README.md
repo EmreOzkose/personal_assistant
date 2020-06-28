@@ -2,11 +2,15 @@
 🇹🇷 🇬🇧
 
 ## Description
-...
+For detail, please refer to [wiki pages](https://github.com/EmreOzkose/personal_assistant/wiki)
 
 ## Features
-- 
-- 
+- Summarize your day according to your Google Calendar  ```günün özeti```
+- Motivate you if you want :smile:  ```beni motive et```
+- Introduce your name ```artık bana Emre de```
+- Make sure if she knows you  ```ben kimim```
+- Say thank you :smile: ```teşekkürler```
+- ... All abilities are added or will be added soon in [wiki pages](https://github.com/EmreOzkose/personal_assistant/wiki)
 
 ## Getting started
 ### Installation
