@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 2;
 
     NetworkManager networkManager;
+    Assistan assistan;
     SpeechManager speechManager;
 
     @Override
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         networkManager = new NetworkManager("192.168.2.21", 5000, this);
+        assistan = new Assistan();
         speechManager = new SpeechManager(this);
         speechManager.setREQ_CODE_SPEECH_INPUT(REQ_CODE_SPEECH_INPUT);
 
@@ -62,23 +65,39 @@ public class MainActivity extends AppCompatActivity {
                     String result_text = result.get(0);
                     if (result_text == null) result_text = "";
 
-                    if (result_text.toLowerCase().contains("günü özetle") || result_text.toLowerCase().contains("günün özeti")){
-                        speechManager.say_sentence("tabiki " + speechManager.getCall_name());
-                        sleep_app(2);
+                    switch (result_text.toLowerCase()){
+                        case "günaydın":
+                            speechManager.say_sentence("Saat " + get_current_time_with_blanks() + " olmuş, yeni mi uyandın.");
+                            break;
 
-                        networkManager.send_google_cal_request(speechManager);
-                    }
-                    else if (result_text.toLowerCase().contains("artık bana")){
-                        speechManager.setCall_name(result_text.toLowerCase().replace("artık bana", "").replace("de", "").trim());
-                        speechManager.say_sentence("Sana artık " + speechManager.getCall_name() + " diyeceğim.");
-                        set_stored_call_name(speechManager.getCall_name());
-                    }
-                    else if  (result_text.toLowerCase().contains("teşekkürler"))
-                        speechManager.say_sentence("Ne demek canım, öpüyorum.");
-                    else if  (result_text.toLowerCase().contains("ben kimim")) {
-                        speechManager.say_sentence("Hah ! Sen ki " + speechManager.getCall_name());
-                        sleep_app(2);
-                        speechManager.say_sentence("Ki ben senin asistanınım!");
+                        case "beni motive et":
+                        case "bana motivasyon ver":
+                            String quote = assistan.motivate();
+                            speechManager.say_sentence(quote);
+                            break;
+
+                        case "teşekkürler":
+                            speechManager.say_sentence("Ne demek canım, öpüyorum.");
+                            break;
+
+                        case "ben kimim":
+                            speechManager.say_sentence("Hah ! Sen ki " + speechManager.getCall_name());
+                            sleep_app(2);
+                            speechManager.say_sentence("Ki ben senin asistanınım!");
+                            break;
+
+                        default:
+                            if (result_text.toLowerCase().contains("günü özetle") || result_text.toLowerCase().contains("günün özeti")){
+                                speechManager.say_sentence("tabiki " + speechManager.getCall_name());
+                                sleep_app(2);
+
+                                networkManager.send_google_cal_request(speechManager);
+                            }
+                            else if (result_text.toLowerCase().contains("artık bana")){
+                                speechManager.setCall_name(result_text.toLowerCase().replace("artık bana", "").replace("de", "").trim());
+                                speechManager.say_sentence("Sana artık " + speechManager.getCall_name() + " diyeceğim.");
+                                set_stored_call_name(speechManager.getCall_name());
+                            }
                     }
 
                     break;
@@ -107,6 +126,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void sleep_app(int seconds) throws InterruptedException {
         TimeUnit.SECONDS.sleep(seconds);
+    }
+
+    private String get_current_time_with_blanks(){
+        LocalTime myObj = LocalTime.now();
+        String time_h_m_s = myObj.toString().split("\\.")[0];
+        String [] time_split = time_h_m_s.split(":");
+
+        return time_split[0] + " " + time_split[1];
     }
 
 }
