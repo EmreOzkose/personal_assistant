@@ -21,3 +21,4 @@ Prepare a .sh file. A template is given.
 - [ ] make more flexiable commands (contains("gün") and contains("özet"))
 - [ ] write a wiki
 - [ ] make a settings in android app
+- [ ] Q/A AI model
