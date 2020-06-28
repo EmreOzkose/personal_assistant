@@ -42,6 +42,7 @@ will be added soon
 - [ ] make new release after constructing a wiki and readme
 - [ ] add screenshots to readme or wiki
 - [ ] after adding settings in android app, add apk to github
+- [ ] design a fancy logo
 
 ## Contribution
 Feel free if you want to develop a part and want to make a pull request, write an issue, etc... I am checking issues and pull requests regularly as much as possible
