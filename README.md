@@ -22,3 +22,4 @@ Prepare a .sh file. A template is given.
 - [ ] write a wiki
 - [ ] make a settings in android app
 - [ ] Q/A AI model
+- [ ] add multi language design to android app
