@@ -28,6 +28,7 @@ python server.py
 - [ ] make a settings in android app
 - [ ] Q/A AI model
 - [ ] add multi language design to android app
+- [ ] make new release after constructing a wiki and readme
 
 ## License 
 This project is under the GPL-3.0 License. See [LICENSE](LICENSE) for details.
