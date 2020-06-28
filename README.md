@@ -11,7 +11,12 @@
 ...
 
 ### Run recomendation
-Prepare a .sh file. A template is given.
+Prepare a .sh file. A template is given. It is just 1 few line of code, but you are not required to open an ide or initializing a conda env, etc...
+```
+source activate <repo name>
+cd /path/to/personal_assistant/server
+python server.py
+```
 
 ## Architecture
 ...
