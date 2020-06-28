@@ -1,4 +1,20 @@
-# personal_assistant
+# Personal Assistant
+## Description
+...
+
+## Features
+- 
+- 
+
+## Getting started
+### Installation
+...
+
+### Run recomendation
+Prepare a .sh file. A template is given.
+
+## Architecture
+...
 
 ## TO-DO
 - [ ] eye detection yaparak speech recognition kısmına odaklan
