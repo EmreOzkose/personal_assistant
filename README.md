@@ -37,6 +37,7 @@ python server.py
 - [ ] add multi language design to android app
 - [ ] make new release after constructing a wiki and readme
 - [ ] add screenshots to readme or wiki
+- [ ] after adding settings in android app, add apk to github
 
 ## License 
 This project is under the GPL-3.0 License. See [LICENSE](LICENSE) for details.
