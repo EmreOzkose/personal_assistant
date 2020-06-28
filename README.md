@@ -20,3 +20,4 @@ Prepare a .sh file. A template is given.
 - [ ] eye detection yaparak speech recognition kısmına odaklan
 - [ ] make more flexiable commands (contains("gün") and contains("özet"))
 - [ ] write a wiki
+- [ ] make a settings in android app
