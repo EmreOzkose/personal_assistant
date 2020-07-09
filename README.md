@@ -23,7 +23,7 @@ will be added soon
 ### Run recomendation
 Prepare a .sh file. A template is given. It is just a few line of code, but you are not required to open an ide or initializing a conda env, etc...
 ```Shell
-source activate <repo name>
+source activate <environment name>
 cd /path/to/personal_assistant/server
 python server.py
 ```
